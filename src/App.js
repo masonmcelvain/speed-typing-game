@@ -36,9 +36,9 @@ function App() {
     if (isTimeRunning && timeRemaining > 0) {
         setTimeout(() => {
             setTimeRemaining(time => time - 1)
-        }, 1000)
+        }, 1000);
     } else if (timeRemaining === 0) {
-        endGame()
+        endGame();
     }
   }, [timeRemaining, isTimeRunning])
 
