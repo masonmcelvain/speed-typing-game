@@ -20,11 +20,18 @@ button {
 
 button:disabled {
   cursor: not-allowed;
+  background-color: #a5a2a2;
 }
 
 h1 {
   font-size: 20px;
   text-align:center;
+  margin: 20px auto 10px;
+}
+
+h4 {
+  text-align:center;
+  margin: 20px auto;
 }
 
 textarea {
@@ -39,5 +46,38 @@ textarea {
 }
 
 textarea:disabled {
+  background-color: #a5a2a2;
+}
+
+hr {
+  width: 80%;
+  border: 0.5px solid #00b800;
+}
+
+.timeSetter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+}
+
+.timeSetter h4 {
+  text-align:center;
+  margin: auto;
+}
+
+.timeSetter input {
+  font-family: 'Press Start 2P', cursive;
+  border: 3px solid black;
+  width: 50px;
+  margin: 0 auto;
+  text-align: center;
+  outline: none;
+  background: #00b800;
+  padding: 10px;
+}
+
+.timeSetter input:disabled {
+  cursor: not-allowed;
   background-color: #a5a2a2;
 }

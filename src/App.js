@@ -2,8 +2,9 @@ import React, {useState, useEffect, useRef} from 'react';
 import './App.css';
 
 function App() {
-  const STARTING_TIME = 5;
+  const DEFAULT_START_TIME = 10;
 
+  const [inputTime, setInputTime] = useState(DEFAULT_START_TIME);
   const [text, setText] = useState("");
   const [wordCount, setWordCount] = useState(0);
   const [timeRemaining, setTimeRemaining] = useState(0);
@@ -19,9 +20,13 @@ function App() {
     return wordsArr.filter(word => word !== "").length;
   }
 
+  function updateTime(e) {
+    setInputTime(e.target.value);
+  }
+
   function startGame() {
     setIsTimeRunning(true);
-    setTimeRemaining(STARTING_TIME);
+    setTimeRemaining(inputTime);
     setText("");
     textBoxRef.current.disabled = false;
     textBoxRef.current.focus();
@@ -53,7 +58,7 @@ function App() {
       >
 
       </textarea>
-      <h4>Time Remaining: {timeRemaining}</h4>
+      <h4>Time Remaining: {timeRemaining} sec</h4>
       <button
         onClick={startGame}
         disabled={isTimeRunning}
@@ -61,6 +66,25 @@ function App() {
         Start!
       </button>
     <h1>Word Count: {wordCount}</h1>
+
+    <hr />
+
+    <div className="timeSetter">
+      <h4>Set Time: </h4>
+      <input
+        type="text"
+        value={inputTime}
+        placeholder={inputTime}
+        onChange={updateTime}
+        disabled={isTimeRunning}
+      ></input>
+    </div>
+    <button
+      onClick={endGame}
+      disabled={!isTimeRunning}
+    >
+      Quit
+    </button>
     </div>
   );
 }
